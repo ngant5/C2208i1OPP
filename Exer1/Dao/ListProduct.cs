@@ -1,9 +1,10 @@
 ﻿using Exer1.Entity;
+using Exer1.IService;
 using Exer1.Validate;
 
 namespace Exer1.Dao;
 
-public class ListProduct
+public class ListProduct : IDao
 {
     public List<Product> ListPro { get; set; } = [];
 
@@ -49,13 +50,15 @@ public class ListProduct
 
     }
 
-    internal void SortProduct()
+    public void SortProduct()
     {
-        //sort xong cho vào new list (list cũ không ảnh hưởng
+        //sort xong cho vào new list (list cũ không ảnh hưởng)
+        //sql server
         var list = ListPro.OrderBy(p => p.ProId);
         list.ToList().ForEach(Console.WriteLine);
-
+        //=====
         //quick sort
+        //ListPro.Sort() <=> ListPro.Reverse()
         ListPro.Sort(
             (p1, p2) => p1.ProId.CompareTo(p2.ProId)
             );
