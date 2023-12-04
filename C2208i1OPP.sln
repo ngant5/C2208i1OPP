@@ -25,13 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ListCSharp", "ListCSharp", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExtensionMethod", "ExtensionMethod", "{042E1F76-40B5-41AC-AFBB-F234274287D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReviewExtensionMethod", "ReviewExtensionMethod\ReviewExtensionMethod.csproj", "{64B85E21-FE37-4FE8-AF68-2834C4060DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReviewExtensionMethod", "ReviewExtensionMethod\ReviewExtensionMethod.csproj", "{64B85E21-FE37-4FE8-AF68-2834C4060DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListandLinq", "ListandLinq\ListandLinq.csproj", "{80DBCFF6-07EF-4F8B-BDB3-80ACE5E92327}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListandLinq", "ListandLinq\ListandLinq.csproj", "{80DBCFF6-07EF-4F8B-BDB3-80ACE5E92327}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{C21ED94A-42D0-469B-B985-A77C498F0731}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exer1", "Exer1\Exer1.csproj", "{08852FD5-9A25-4C63-9ABA-B4D686523A3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exer1", "Exer1\Exer1.csproj", "{08852FD5-9A25-4C63-9ABA-B4D686523A3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

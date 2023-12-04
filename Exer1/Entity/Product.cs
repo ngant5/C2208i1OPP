@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exer1.Entity;
-internal class Product
+﻿namespace Exer1.Entity;
+public class Product
 {
     public string ProId { get; set; }
     public string ProName { get; set; }
-    public string ProPrice { get; set; }
+    public double ProPrice { get; set; }
     public int Quantity { get; set; }
     public DateTime ProMfg { get; set; }
 
     public override string ToString()
     {
-        return $"{nameof(ProId)}={ProId}, {nameof(ProName)}={ProName}, {nameof(ProPrice)}={ProPrice}, {nameof(Quantity)}={Quantity.ToString()}, {nameof(ProMfg)}={ProMfg.ToString()}";
+        return $"{{{nameof(ProId)}={ProId}, {nameof(ProName)}={ProName}, {nameof(ProPrice)}={ProPrice}, {nameof(Quantity)}={Quantity}, {nameof(ProMfg)}={ProMfg.ToString()}}}";
     }
-
 }

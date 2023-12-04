@@ -1,6 +1,6 @@
-﻿
-using Exer1;
+﻿using System.Text;
+using Exer1.ListMenu;
 
-Console.WriteLine( "vui lòng nhập ngày");
-int so = Valid<int>.CheckCR();
-Console.WriteLine(so);
+Console.InputEncoding = Encoding.Unicode;
+Console.OutputEncoding = Encoding.Unicode;
+Menu.Show();
