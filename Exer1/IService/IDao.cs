@@ -11,5 +11,7 @@ internal interface IDao
     void ShowProduct();
     void DeleteProduct();
     void FindProduct();
+    void UpdateProduct();
+
     void SortProduct();
 }

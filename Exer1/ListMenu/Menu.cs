@@ -18,7 +18,8 @@ public class Menu
             Console.WriteLine("2 - in danh sách sản phẩm: ");
             Console.WriteLine("3 - xóa sản phẩm bất kỳ trong danh sách: ");
             Console.WriteLine("4 - tìm sản phẩm: ");
-            Console.WriteLine("5 - sắp xếp sản phẩm: ");
+            Console.WriteLine("5 - cập nhât sản phẩm: ");
+            Console.WriteLine("6 - sắp xếp sản phẩm: ");
             Console.WriteLine("chọn bất kỳ số nào khác ở trên để thoát: ");
 
             var choose = Valid<int>.CheckCR("vui lòng chọn số: ");
@@ -41,6 +42,10 @@ public class Menu
                     list.FindProduct();
                     break;
                 case 5:
+                    list.ChangeColor(ConsoleColor.Black, ConsoleColor.Blue);
+                    list.UpdateProduct();
+                    break;
+                case 6:
                     list.ChangeColor(ConsoleColor.Black, ConsoleColor.Blue);
                     list.SortProduct();
                     break;

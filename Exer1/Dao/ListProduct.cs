@@ -63,4 +63,28 @@ public class ListProduct : IDao
             (p1, p2) => p1.ProId.CompareTo(p2.ProId)
             );
     }
+
+    public void UpdateProduct()
+    {
+        string id = Valid<string>.CheckCR("Vui lòng nhập id sản phẩm cần cập nhật: ");
+        var productToUpdate = ListPro.SingleOrDefault(p => string.Compare(p.ProId, id, true) == 0);
+
+        if (productToUpdate is not null)
+        {
+            Console.WriteLine($"Thông tin hiện tại của sản phẩm có id {id}:");
+            Console.WriteLine(productToUpdate);
+
+            Console.WriteLine("\nNhập thông tin mới cho sản phẩm:");
+            productToUpdate.ProName = Valid<string>.CheckCR("Nhập tên sản phẩm mới: ");
+            productToUpdate.ProPrice = Valid<double>.CheckCR("Nhập giá sản phẩm mới: ");
+            productToUpdate.Quantity = Valid<int>.CheckCR("Nhập số lượng sản phẩm mới: ");
+            productToUpdate.ProMfg = Valid<DateTime>.CheckCR("Nhập ngày sản xuất mới: ");
+
+            Console.WriteLine($"Thông tin của sản phẩm có id {id} đã được cập nhật.");
+        }
+        else
+        {
+            Console.WriteLine($"Không tìm thấy sản phẩm có id {id} trong danh sách.");
+        }
+    }
 }
