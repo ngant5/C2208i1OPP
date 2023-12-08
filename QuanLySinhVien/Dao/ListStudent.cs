@@ -32,32 +32,92 @@ internal class ListStudent : IDao
     }
     public void ShowStudent() => ListStu.ForEach(Console.WriteLine);
 
-    public void FintStudent()
+    public void FindStudent()
     {
-        string id = Valid<string>.CheckCR("Vui lòng nhập id cần tìm: ");
-        //ListPro.RemoveAll(p => p.ProId.ToLower() == id.ToLower());
 
-        var findStu = ListStu.SingleOrDefault(p => string.Compare(p.HoTen, id, true) == 0);
+        int id = Valid<int>.CheckCR("Vui lòng nhập id cần tìm: ");
+        
+
+        var findStu = ListStu.SingleOrDefault(p => p.MaSV == id);
         if (findStu is not null)
         {
+            Console.WriteLine("Sinh viên cần tìm có thông tin như sau:");
             Console.WriteLine(findStu);
         }
-    }
+        else
+        {
+            Console.WriteLine($"Không tìm thấy sản phẩm có id {id} trong danh sách.");
+        }
 
-    
+    }
 
     internal void ShowStudent20()
     {
         throw new NotImplementedException();
     }
 
-    internal void ShowStudentPoint()
+    public void ShowStudentWithHighest()
     {
-        throw new NotImplementedException();
+        // Tìm điểm trung bình lớn nhất
+        double maxAverage = ListStu.Max(p => p.DiemTrungBinh);
+
+        // Lọc danh sách sinh viên có điểm trung bình bằng điểm trung bình lớn nhất
+        var studentsWithMaxAverage = ListStu.Where(p => p.DiemTrungBinh == maxAverage);
+
+        Console.WriteLine($"Danh sách sinh viên có điểm trung bình bằng điểm trung bình lớn nhất ({maxAverage}):");
+
+        // Hiển thị danh sách sinh viên
+        studentsWithMaxAverage.ToList().ForEach(Console.WriteLine);
+
     }
 
-    internal void SortStudent()
+    public void SortStudent()
     {
-        throw new NotImplementedException();
+        var list = ListStu.OrderByDescending(p => p.DiemTrungBinh);
+        list.ToList().ForEach(Console.WriteLine);
     }
+
+    public void UpdateStudent()
+    {
+        int id = Valid<int>.CheckCR("Vui lòng nhập id cần cập nhật: ");
+        var StuToUpdate = ListStu.SingleOrDefault(p => p.MaSV == id);
+
+
+        if (StuToUpdate is not null)
+        {
+            Console.WriteLine($"Thông tin hiện tại của sản phẩm có id {id}:");
+            Console.WriteLine(StuToUpdate);
+
+            Console.WriteLine("\nNhập thông tin mới cho sản phẩm:");
+            StuToUpdate.HoTen = Valid<string>.CheckCR("Nhập lại tên sinh viên: ");
+            StuToUpdate.NgaySinh = Valid<DateTime>.CheckCR("Nhập lại ngày sinh: ");
+            StuToUpdate.GioiTinh = Valid<string>.CheckCR("Nhập lại giới tính: ");
+            StuToUpdate.DiemTrungBinh = Valid<double>.CheckCR("Nhập lại điểm: ");
+            StuToUpdate.DiaChiNha = Valid<string>.CheckCR("Nhập lại địa chỉ: ");
+
+            Console.WriteLine($"Thông tin của sinh viên có id {id} đã được cập nhật.");
+        }
+        else
+        {
+            Console.WriteLine($"Không tìm thấy sinh viên có id {id} trong danh sách.");
+        }
+    }
+
+    public void DeleteStudent()
+    {
+        int id = Valid<int>.CheckCR("Vui lòng nhập id cần xóa: ");
+        var findStu = ListStu.SingleOrDefault(p => p.MaSV == id);
+        if (findStu is not null)
+        {
+            Console.WriteLine(findStu);
+        }
+        else
+        {
+            Console.WriteLine($"Không tìm thấy sản phẩm có id {id} trong danh sách.");
+        }
+
+        ListStu.RemoveAll(p => p.MaSV == id);
+    }
+
+
 }

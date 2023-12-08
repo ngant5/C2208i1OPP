@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuanLySinhVien.ExtMethod;
-internal class ExtensionMethod
+static class ExtensionMethod
 {
+    public static void ChangeColor<T>(this T item, params ConsoleColor[] color)
+    {
+        Console.BackgroundColor = color[0];
+        Console.ForegroundColor = color[1];
+    }
 }

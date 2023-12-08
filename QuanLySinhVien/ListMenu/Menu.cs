@@ -19,14 +19,16 @@ public class Menu
         {
             Console.ResetColor();
             Console.WriteLine("==============================");
-            Console.WriteLine("1 - nhập danh sách sinh viên: ");
-            Console.WriteLine("2 - hiển thị danh sách sinh viên: ");
-            Console.WriteLine("3 - Thong tin sinh viên tuoi lon hon 20 và diem lon hon 8: ");
-            Console.WriteLine("4 - Thong tin sinh vien có diem trung bình băng diem trung bình lon nhat: ");
-            Console.WriteLine("5 - Săp xep theo diem so : ");
-            Console.WriteLine("6 - Tim sinh vien theo ho ten : ");
+            Console.WriteLine("1 - Nhập danh sách sinh viên: ");
+            Console.WriteLine("2 - Hiển thị danh sách sinh viên: ");
+            Console.WriteLine("3 - Hiển thị danh sách sinh viên có tuổi lớn hơn 20 và có điểm trung bình lớn hơn 8: ");
+            Console.WriteLine("4 - Hiển thị danh sách sinh viên có điểm trung bình bằng điểm trung bình lớn nhất: ");
+            Console.WriteLine("5 - Hiển thị danh sách sắp xếp theo điểm số của sinh viên : ");
+            Console.WriteLine("6 - Tìm xem mã sinh viên có tồn tại không : ");
+            Console.WriteLine("7 - Cập nhật thông tin theo mã sinh viên : ");
+            Console.WriteLine("8 - Xóa sinh viên : ");
 
-            var choose = Valid<int>.CheckCR("vui lòng chọn số: ");
+            var choose = Valid<int>.CheckCR("vui lòng chọn nội dung muốn thực hiện: ");
             switch (choose)
             {
                 case 1:
@@ -39,13 +41,19 @@ public class Menu
                     list.ShowStudent20();
                     break;
                 case 4:
-                    list.ShowStudentPoint();
+                    list.ShowStudentWithHighest();
                     break;
                 case 5:
                     list.SortStudent();
                     break;
                 case 6:
-                    list.FintStudent();
+                    list.FindStudent();
+                    break;
+                case 7:
+                    list.UpdateStudent();
+                    break;
+                case 8:
+                    list.DeleteStudent();
                     break;
                 default:
                     loop = false;
